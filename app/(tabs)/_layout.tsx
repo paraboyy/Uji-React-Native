@@ -1,37 +1,23 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './index';
+import ExploreScreen from './explore';
+import LeaderPage from './leaderinformationpage';
+import PaymentPage from './paymentpage';
+import ReviewPage from './reviewpage';
+import SuccesPage from './succespage';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+const Stack = createNativeStackNavigator();
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function AppNavigator() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Explore" component={ExploreScreen} />
+      <Stack.Screen name="LeaderPage" component={LeaderPage} />
+      <Stack.Screen name="PaymentPage" component={PaymentPage} />
+      <Stack.Screen name="ReviewPage" component={ReviewPage} />
+      <Stack.Screen name="SuccesPage" component={SuccesPage} />
+    </Stack.Navigator>
   );
 }
