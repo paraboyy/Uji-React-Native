@@ -19,7 +19,7 @@ const CreatePaymentScreen = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonIndex}>
+      <TouchableOpacity onPress={() => navigation.navigate('LeaderPage')} style={styles.buttonIndex}>
         <Text style={styles.arrowIcon}>{'<'} </Text>
         <Text style={styles.buttonIndexText} onPress={() => navigation.navigate('LeaderPage')}>Create Payment</Text>
       </TouchableOpacity>
@@ -33,7 +33,7 @@ const CreatePaymentScreen = () => {
         <View style={styles.iconContainer}>
           <Text style={styles.iconText}>3</Text>
         </View>
-        <Text style={styles.buttonInformationText}>Create Paymant</Text>
+        <Text style={styles.buttonInformationText}>Create Payment</Text>
         <View style={styles.iconContainerGrey}>
           <Text style={styles.iconText}>4</Text>
         </View>

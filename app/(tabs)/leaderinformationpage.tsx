@@ -24,13 +24,12 @@ const LeaderInformation = () => {
       });
     } else {
       Alert.alert('Error', 'Semua bidang harus diisi.');
-      navigation.navigate('PaymentPage');
     }
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonIndex}>
+      <TouchableOpacity onPress={() => navigation.navigate('Explore')} style={styles.buttonIndex}>
         <Text style={styles.arrowIcon}>{'<'} </Text>
         <Text style={styles.buttonIndexText} onPress={() => navigation.navigate('Explore')}>Leader Information</Text>
       </TouchableOpacity>
@@ -49,7 +48,6 @@ const LeaderInformation = () => {
           <Text style={styles.iconText}>4</Text>
         </View>
       </TouchableOpacity>
-      {/* <Text style={styles.header}>Leader Information</Text> */}
       <Text style={styles.textinput}>Leader Name</Text>
       <TextInput
         style={styles.input}

@@ -8,7 +8,7 @@ const ReviewDataScreen = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonIndex}>
+      <TouchableOpacity onPress={() => navigation.navigate('PaymentPage')} style={styles.buttonIndex}>
         <Text style={styles.arrowIcon}>{'<'} </Text>
         <Text style={styles.buttonIndexText} onPress={() => navigation.navigate('PaymentPage')}>Create Payment</Text>
       </TouchableOpacity>

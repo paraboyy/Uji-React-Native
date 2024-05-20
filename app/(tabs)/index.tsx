@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonIndex}>
+      <TouchableOpacity onPress={() => navigation.navigate('SearchPage')} style={styles.buttonIndex}>
         <Text style={styles.arrowIcon}>{'<'} </Text>
         <Text style={styles.buttonIndexText}>Create Team</Text>
       </TouchableOpacity>

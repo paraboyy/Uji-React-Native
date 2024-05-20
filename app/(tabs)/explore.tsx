@@ -42,14 +42,13 @@ const TeamInfoForm = () => {
       });
     } else {
       Alert.alert('Error', 'Semua bidang harus diisi.');
-      navigation.navigate('LeaderPage');
     }
   };
 
   return (
     <ScrollView>
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonIndex}>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.buttonIndex}>
         <Text style={styles.arrowIcon}>{'<'} </Text>
         <Text style={styles.buttonIndexText} onPress={() => navigation.navigate('Home')}>Team Information</Text>
       </TouchableOpacity>
@@ -225,6 +224,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     marginBottom: 15,
     borderRadius: 10,
+    color: 'white',
   },
   input: {
     borderRadius: 10,
