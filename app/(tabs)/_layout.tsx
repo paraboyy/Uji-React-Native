@@ -4,7 +4,7 @@ import HomeScreen from './index';
 import ExploreScreen from './explore';
 import LeaderPage from './leaderinformationpage';
 import PaymentPage from './paymentpage';
-import ReviewPage from './reviewpage';
+import ReviewPage from './reviewdatapage';
 import SuccesPage from './succespage';
 import SearchPage from './searchpage';
 
