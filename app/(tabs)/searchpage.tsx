@@ -4,9 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import Modal from 'react-native-modal';
 
 const FindTeam = () => {
-  const [agree, setAgree] = useState(false);
-  const navigation = useNavigation();
   const [isModalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -14,30 +13,39 @@ const FindTeam = () => {
 
   return (
     <View style={styles.containerindex}>
-      <TouchableOpacity style={styles.buttonIndex}>
+      <TouchableOpacity style={styles.buttonIndex} onPress={() => navigation.navigate('CreateTeam')}>
         <Text style={styles.arrowIcon}>{'<'} </Text>
         <Text style={styles.buttonIndexText}>Create Team</Text>
       </TouchableOpacity>
 
       <View style={styles.container}>
         <View style={styles.circle}>
-          {/* Anda bisa menggunakan gambar atau SVG untuk ikon centang */}
           <Text style={styles.checkMark}>✓</Text>
         </View>
-        <Text style={styles.successMessage}>You heaven't join to any team!</Text>
+        <Text style={styles.successMessage}>You haven't joined any team!</Text>
         <Text style={styles.infoMessage}>
-          Join best the team now to compete others and participate in tournaments!
+          Join the best team now to compete with others and participate in tournaments!
         </Text>
-        <Button style={styles.button} title='Find Team' onPress={toggleModal}></Button>
       </View>
-      <Modal isVisible={isModalVisible}>
+      
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.button} onPress={toggleModal}>
+          <Text style={styles.buttonText}>Find Team</Text>
+        </TouchableOpacity>
+      </View>
+
+      <Modal isVisible={isModalVisible} style={styles.modal}>
         <View style={styles.modalContent}>
-          <Text style={styles.modalText}>Ini adalah konten pop-up!</Text>
-          <Button title="Tutup" onPress={toggleModal} />
+        <TouchableOpacity style={styles.buttonmodal} onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.modalText}>Create New Team</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonmodal}>
+          <Text style={styles.modalText}>Manage Team</Text>
+        </TouchableOpacity>
         </View>
       </Modal>
     </View>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -49,18 +57,17 @@ const styles = StyleSheet.create({
   buttonIndexText: {
     color: '#FFF',
     fontWeight: 'bold',
-    fontSize: 20, 
+    fontSize: 20,
   },
   buttonIndex: {
     flexDirection: 'row',
     padding: '5%',
     paddingTop: '10%',
-
   },
   arrowIcon: {
-    color: '#FFF', 
-    fontSize: 20, 
-    marginRight: 5, 
+    color: '#FFF',
+    fontSize: 20,
+    marginRight: 5,
     fontWeight: 'bold',
   },
   container: {
@@ -94,29 +101,50 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     marginTop: 10,
   },
+  footer: {
+    padding: 10,
+    backgroundColor: '#000',
+    alignItems: 'center',
+  },
   button: {
     borderRadius: 10,
-    backgroundColor: 'yellow', 
+    backgroundColor: 'yellow',
     padding: 15,
     alignItems: 'center',
-    marginTop: 10,
+    width: '80%',
+  },
+  buttonmodal: {
+    borderRadius: 10,
+    margin: '1%',
+    backgroundColor: 'grey',
+    padding: 15,
+    // alignItems: 'center',
     width: '80%',
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: 'bold', 
+    fontWeight: 'bold',
+  },
+  modalText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  modal: {
+    justifyContent: 'flex-end',
+    margin: 0,
   },
   modalContent: {
-    backgroundColor: 'white',
+    backgroundColor: '#000',
     padding: 22,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 4,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     borderColor: 'rgba(0, 0, 0, 0.1)',
   },
   modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
+    // marginBottom: 15,
+    // textAlign: 'center',
   },
 });
 

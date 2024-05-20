@@ -63,10 +63,10 @@ const ReviewDataScreen = () => {
         </View>
         <View style={styles.dataRow}>
           <Text style={styles.dataLabel}>Phone Number</Text>
-          <Text style={styles.dataValue}>{leaderData.phoneNumber}</Text>
+          <Text style={styles.dataValue}>0{leaderData.phoneNumber}</Text>
         </View>
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SuccessPage')}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('SuccesPage')}>
         <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
     </View>
