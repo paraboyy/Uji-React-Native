@@ -39,7 +39,7 @@ const FindTeam = () => {
         <TouchableOpacity style={styles.buttonmodal} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.modalText}>Create New Team</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonmodal}>
+        <TouchableOpacity style={styles.buttonmodal} onPress={() => navigation.navigate('ManagePage')}>
           <Text style={styles.modalText}>Manage Team</Text>
         </TouchableOpacity>
         </View>
@@ -142,10 +142,10 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderColor: 'rgba(0, 0, 0, 0.1)',
   },
-  modalText: {
+  // modalText: {
     // marginBottom: 15,
     // textAlign: 'center',
-  },
+  // },
 });
 
 export default FindTeam;

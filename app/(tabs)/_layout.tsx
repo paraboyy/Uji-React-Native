@@ -7,6 +7,7 @@ import PaymentPage from './paymentpage';
 import ReviewPage from './reviewdatapage';
 import SuccesPage from './succespage';
 import SearchPage from './searchpage';
+import ManagePage from './manageteam';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function AppNavigator() {
       <Stack.Screen name="ReviewPage" component={ReviewPage} />
       <Stack.Screen name="SuccesPage" component={SuccesPage} />
       <Stack.Screen name="SearchPage" component={SearchPage} />
+      <Stack.Screen name="ManagePage" component={ManagePage} />
     </Stack.Navigator>
   );
 }
