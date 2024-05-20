@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 const CreatePaymentScreen = () => {
@@ -14,42 +14,43 @@ const CreatePaymentScreen = () => {
         teamData: teamData,
         leaderData: leaderData
       });
-
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('LeaderPage')} style={styles.buttonIndex}>
-        <Text style={styles.arrowIcon}>{'<'} </Text>
-        <Text style={styles.buttonIndexText} onPress={() => navigation.navigate('LeaderPage')}>Create Payment</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonInformation}>
-        <View style={styles.iconContainer}>
-          <Text style={styles.iconText}>1</Text>
-        </View>
-        <View style={styles.iconContainer}>
-          <Text style={styles.iconText}>2</Text>
-        </View>
-        <View style={styles.iconContainer}>
-          <Text style={styles.iconText}>3</Text>
-        </View>
-        <Text style={styles.buttonInformationText}>Create Payment</Text>
-        <View style={styles.iconContainerGrey}>
-          <Text style={styles.iconText}>4</Text>
-        </View>
-      </TouchableOpacity>
-      <Text style={styles.header}>Create Payment</Text>
-      <Text style={styles.infoText}>
-        Create payment needed if you want to participate in the e-sport tournament, but you can also do this step later:
-      </Text>
-      <TouchableOpacity style={styles.buttonOutlined}>
-        {/* <FontAwesomeIcon icon={faEnvelope} size={20} color="white" /> */}
-        <Text style={styles.info}>Make Payment Now</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonOutlined}>
-        {/* <FontAwesomeIcon icon={faClock} size={20} color="white" /> */}
-        <Text style={styles.info}>Do this process later</Text>
-      </TouchableOpacity>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('LeaderPage')} style={styles.buttonIndex}>
+          <Text style={styles.arrowIcon}>{'<'} </Text>
+          <Text style={styles.buttonIndexText}>Create Payment</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonInformation}>
+          <View style={styles.iconContainer}>
+            <Text style={styles.iconText}>1</Text>
+          </View>
+          <View style={styles.iconContainer}>
+            <Text style={styles.iconText}>2</Text>
+          </View>
+          <View style={styles.iconContainer}>
+            <Text style={styles.iconText}>3</Text>
+          </View>
+          <Text style={styles.buttonInformationText}>Create Payment</Text>
+          <View style={styles.iconContainerGrey}>
+            <Text style={styles.iconText}>4</Text>
+          </View>
+        </TouchableOpacity>
+        <Text style={styles.header}>Create Payment</Text>
+        <Text style={styles.infoText}>
+          Create payment needed if you want to participate in the e-sport tournament, but you can also do this step later:
+        </Text>
+        <TouchableOpacity style={styles.buttonOutlined}>
+          {/* <FontAwesomeIcon icon={faEnvelope} size={20} color="white" /> */}
+          <Text style={styles.info}>Make Payment Now</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonOutlined}>
+          {/* <FontAwesomeIcon icon={faClock} size={20} color="white" /> */}
+          <Text style={styles.info}>Do this process later</Text>
+        </TouchableOpacity>
+      </ScrollView>
       <TouchableOpacity style={styles.button} onPress={handleContinue}>
         <Text style={styles.buttonText}>Continue</Text>
       </TouchableOpacity>
@@ -61,14 +62,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'black',
+  },
+  scrollContainer: {
     padding: 20,
+    paddingBottom: 100, // memberikan ruang untuk tombol di footer
   },
   buttonIndexText: {
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 20, 
   },
-buttonIndex: {
+  buttonIndex: {
     flexDirection: 'row',
     padding: '5%',
     paddingTop: '10%',
@@ -81,7 +85,7 @@ buttonIndex: {
   },
   buttonInformation: {
     flexDirection: 'row',
-    backgroundColor: '#333', // Warna latar belakang tombol
+    backgroundColor: '#333',
     padding: 10,
     borderRadius: 5,
     alignItems: 'center',
@@ -89,23 +93,22 @@ buttonIndex: {
     marginBottom: '10%',
   },
   iconContainer: {
-    backgroundColor: 'yellow', // Warna latar belakang ikon
+    backgroundColor: 'yellow',
     borderRadius: 10,
     padding: 10,
   },
   iconContainerGrey: {
-    backgroundColor: 'grey', // Warna latar belakang ikon
+    backgroundColor: 'grey',
     borderRadius: 10,
     padding: 10,
   },
   iconText: {
-    color: '#333', // Warna teks ikon
+    color: '#333',
     fontWeight: 'bold',
   },
   buttonInformationText: {
-    color: '#FFF', // Warna teks tombol
-    fontSize: 16, // Ukuran teks tombol
-    // paddingRight: 10,
+    color: '#FFF',
+    fontSize: 16,
   },
   navBar: {
     flexDirection: 'row',
@@ -154,7 +157,10 @@ buttonIndex: {
     backgroundColor: 'yellow', 
     padding: 15,
     alignItems: 'center',
-    marginTop: 10,
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    right: 20,
   },
 });
 
